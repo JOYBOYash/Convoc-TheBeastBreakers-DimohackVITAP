@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -72,16 +72,16 @@
 	<link rel="stylesheet" type="text/css" href="">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head> -->
-<body>
+<!-- <body>
 	<div class="main">  	
 
 			<div class="signup">
 
 				<form  id="Mainform1" >
 					<label for="chk" aria-hidden="true">Log In</label>
-					<input type="text" name="text" placeholder="UserName" id="nameInp1"  required="">
+					<input type="email" name="text" placeholder="Email ID" id="mailInp1"  required="">
 					<input type="password" name="pswd" placeholder="Password" id="passInp1"  required="">
-					<button type="button">Login</button>
+					<button type="submit">Login</button>
 				</form>
 
         <a href="/HTML/signup.html" class="links">New User ? <Span class="link">Sign UP!</Span></a>
@@ -94,4 +94,39 @@
 
 
 </body>
-</html>
+</html>  -->/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login | Lingual Links  </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 class="logo"> Lingua <span>Link</span></h1>
+    <div class="form-bx">
+        <form action="#" id="login" class="register">
+            <h1>Log In </h1>
+            <div class="input-bx">
+                <input  id="mailid" type="text" required>
+                <label for="text"> Mail ID </label>
+                <ion-icon name="mail-open-outline"></ion-icon>
+            </div>
+            <div class="input-bx">
+                <input id="passkey" type="text" required>
+                <label for="text"> Passkey </label>
+                <ion-icon name="key-outline"></ion-icon>
+            </div>
+
+            <!-- <div class="input-bx">
+                <input id="repass" type="text" required>
+                <label for="text"> Re-enter</label>
+                <ion-icon name="key-outline"></ion-icon>
+            </div> -->
+
+            <button type="submit" class="btn"> Submit </button>
+            <a href="/HTML/register.html" class="loglink passtxt log-btn"><button type="button" class="btn"> Register </button></a>
+        </form>
+    </div>

@@ -23,15 +23,18 @@ const db = getDatabase(app);
 let nameInp = document.getElementById('nameInp');
 let passInp = document.getElementById('passInp');
 let Mf = document.getElementById('Mainform');
-
+let mailInp = document.getElementById('mailInp')
 let RegisterUser = evt => {
   evt.preventDefault();
-  createUserWithEmailAndPassword(auth, nameInp.value, passInp.value)
+  createUserWithEmailAndPassword(auth, nameInp.value, mailInp, passInp.value)
   .then((credentials)=>{
      set(ref(db, 'UserAuthList/' + credentials.user.uid), {
-        UserName: nameInp.value,
-        Passkey: passInp.value
+        UserName: nameInp.value(),
+        Passkey: passInp.value(),
+        Email: mailInp.value()
+
      })
+     alert("SignedIn Successfully!")
   })
   .catch((error)=> {
     console.log(error.message)
