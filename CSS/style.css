@@ -149,10 +149,9 @@ button.active .text {
 
 
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
 body{
-    font-family: 'Raleway', sans-serif;
+
     overflow: hidden;
 }
 span{
