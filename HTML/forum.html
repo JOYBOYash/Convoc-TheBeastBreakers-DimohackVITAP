@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-database.js"></script>
+    <script>
+        // Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBgd5TasgU1o1GFud1Nv98wiDTzNMzepnw",
+            authDomain: "lingua-link-2907a.firebaseapp.com",
+            databaseURL: "https://lingua-link-2907a-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "lingua-link-2907a",
+            storageBucket: "lingua-link-2907a.appspot.com",
+            messagingSenderId: "451405127324",
+            appId: "1:451405127324:web:71d41d5791af4c6a68d759"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        
+        // Firebase Database reference
+        var database = firebase.database();
+        
+        // Function to send message
+        function sendMessage() {
+            var message = document.getElementById("message").value;
+            var forumId = getQueryParam("forumId");
+            database.ref('forums/' + forumId + '/messages').push().set({
+                text: message
+            });
+            document.getElementById("message").value = ""; // Clear input field
+        }
+        
+        // Function to retrieve query parameter from URL
+        function getQueryParam(param) {
+            var urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to load messages
+        function loadMessages() {
+            var forumId = getQueryParam("forumId");
+            var messagesRef = database.ref('forums/' + forumId + '/messages');
+            messagesRef.on('value', function(snapshot) {
+                document.getElementById('messages').innerHTML = ''; // Clear previous messages
+                snapshot.forEach(function(childSnapshot) {
+                    var message = childSnapshot.val();
+                    var messageElement = document.createElement('div');
+                    messageElement.textContent = message.text;
+                    document.getElementById('messages').appendChild(messageElement);
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="loadMessages()">
+    <h1>Forum</h1>
+    <div id="messages"></div>
+    <input type="text" id="message" placeholder="Type your message">
+    <button onclick="sendMessage()">Send</button>
+</body>
+</html>
