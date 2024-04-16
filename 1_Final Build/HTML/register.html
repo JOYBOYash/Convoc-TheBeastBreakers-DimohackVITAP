@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Register | Convoc  </title>
+    <link rel="stylesheet" href="/1_Final Build/CSS/style.css">
+</head>
+<body>
+    <h1 class="logo"> Convoc</h1>
+    <h1 class="logotxt">Enter a world of debates! </h1>
+    <div class="form-bx">
+        <form action="#" id="register" class="register">
+            <h1>Register </h1>
+            <div class="input-bx">
+                <input id="username" type="text" required>
+                <label for="text"> Username </label>
+                <ion-icon name="people-outline" class="icon ppl"></ion-icon>
+            </div>
+            <div class="input-bx">
+                <input  id="mailid" type="text" required>
+                <label for="text"> Mail ID </label>
+                <ion-icon name="mail-open-outline" class="icon"></ion-icon>
+            </div>
+            <div class="input-bx">
+                <input id="passkey" type="text" required>
+                <label for="text"> Passkey </label>
+                <ion-icon name="key-outline" class="icon"></ion-icon>
+            </div>
+
+            <!-- <div class="input-bx">
+                <input id="repass" type="text" required>
+                <label for="text"> Re-enter</label>
+                <ion-icon name="key-outline"></ion-icon>
+            </div> -->
+
+            <button type="submit" class="btn"> Submit </button>
+            <h2>Existing User?</h2>
+            <a href="/1_Final Build/HTML/login.html" class="loglink passtxt log-btn"><button type="button" class="btn"> log In </button></a>
+        </form>
+    </div>
+
+
+
+
+
+    <!-- Scripts -->
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBgd5TasgU1o1GFud1Nv98wiDTzNMzepnw",
+          authDomain: "lingua-link-2907a.firebaseapp.com",
+          databaseURL: "https://lingua-link-2907a-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "lingua-link-2907a",
+          storageBucket: "lingua-link-2907a.appspot.com",
+          messagingSenderId: "451405127324",
+          appId: "1:451405127324:web:71d41d5791af4c6a68d759"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+
+        const db = getDatabase();
+        const auth = getAuth(app);
+        // const dbref = ref(db);
+
+        let email = document.getElementById('mailid');
+        let username = document.getElementById('username');
+        let passkey = document.getElementById('passkey');
+        let register =  document.getElementById('register')
+
+        let RegisterUser = evt => {
+            evt.preventDefault();
+
+            createUserWithEmailAndPassword(auth, email.value, passkey.value)
+
+            .then((credentials)=>{
+                console.log(credentials)
+                alert('successfully Registered! ')
+                window.location.href="/1_Final Build/HTML/login.html";
+            })
+            .catch((error)=>{
+           console.log(error.code);
+           console.log(error.message);
+
+           alert(error.message)
+         })
+        }
+
+        register.addEventListener('submit', RegisterUser);
+      </script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" ></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js" ></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" ></script>
+    <script src="script.js"></script> -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!-- Scripts -->
+</body>
+</html>

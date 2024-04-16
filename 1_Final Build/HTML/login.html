@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Register | Elbater  </title>
-    <link rel="stylesheet" href="/CSS/style.css">
+    <title> Login | Convoc </title>
+    <link rel="stylesheet" href="/1_Final Build/CSS/style.css">
 </head>
 <body>
-    <h1 class="logo"> Elbater</h1>
-    <h1 class="logotxt">Engage in Fun Debates! </h1>
+    <h1 class="logo"> Convoc </h1>
+    <h1 class="logotxt">Engage in true Debates! </h1>
     <div class="form-bx">
-        <form action="#" id="register" class="register">
-            <h1>Register </h1>
-            <div class="input-bx">
-                <input id="username" type="text" required>
-                <label for="text"> Username </label>
-                <ion-icon name="people-outline"></ion-icon>
-            </div>
+        <form action="#" id="login" class="register">
+            <h1>Log In </h1>
             <div class="input-bx">
                 <input  id="mailid" type="text" required>
                 <label for="text"> Mail ID </label>
-                <ion-icon name="mail-open-outline"></ion-icon>
+                <ion-icon name="mail-open-outline" class="icon"></ion-icon>
             </div>
             <div class="input-bx">
                 <input id="passkey" type="text" required>
                 <label for="text"> Passkey </label>
-                <ion-icon name="key-outline"></ion-icon>
+                <ion-icon name="key-outline" class="icon"></ion-icon>
             </div>
 
             <!-- <div class="input-bx">
@@ -33,9 +28,10 @@
                 <label for="text"> Re-enter</label>
                 <ion-icon name="key-outline"></ion-icon>
             </div> -->
-
+ 
             <button type="submit" class="btn"> Submit </button>
-            <a href="/HTML/login.html" class="loglink passtxt log-btn"><button type="button" class="btn"> log In </button></a>
+            <h2>New User?</h2>
+            <a href="/1_Final Build/HTML/register.html" class="loglink passtxt log-btn"><button type="button" class="btn"> Register </button></a>
         </form>
     </div>
 
@@ -50,7 +46,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -70,21 +66,21 @@
 
         const db = getDatabase();
         const auth = getAuth(app);
-        // const dbref = ref(db);
+        const dbref = ref(db);
+
 
         let email = document.getElementById('mailid');
-        let username = document.getElementById('username');
         let passkey = document.getElementById('passkey');
-        let register =  document.getElementById('register')
+        let register =  document.getElementById('login');
 
-        let RegisterUser = evt => {
+        let SignInUser = evt => {
             evt.preventDefault();
 
-            createUserWithEmailAndPassword(auth, email.value, passkey.value)
+            signInWithEmailAndPassword(auth, email.value, passkey.value)
 
             .then((credentials)=>{
-                console.log(credentials)
-                alert('successfully Registered! ')
+                alert("LoggedInSuccessfully")
+                window.location.href="/1_Final Build/HTML/homePage.html";
             })
             .catch((error)=>{
            console.log(error.code);
@@ -94,7 +90,8 @@
          })
         }
 
-        register.addEventListener('submit', RegisterUser);
+        register.addEventListener('submit', SignInUser);
+
       </script>
 
     <!-- <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" ></script>

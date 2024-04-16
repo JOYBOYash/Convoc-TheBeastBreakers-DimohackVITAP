@@ -1,0 +1,176 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    
+}
+
+body
+{     
+        height: 100vh;
+        padding: 0;
+        /*     background: radial-gradient(circle at 50% 0%, #9588c7 15%, #c79ed5 75%); */
+        background-image: radial-gradient(
+            circle at 50% 0%,
+            rgb(67, 54, 74) 16.4%,
+            rgb(47, 48, 67) 68.2%,
+            rgb(27, 23, 36) 99.1%
+        );
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    height: 100vh;
+
+}
+
+h1{
+    color: #03e9f4;
+}
+h2{
+    color: #03e9f4;
+}
+
+.logo{
+    text-align: center;
+   margin-top: 60px;
+    font-size: 50px;
+    color:#03e9f4 ;
+}
+.logotxt{
+    text-align: center;
+   margin-top: 0px;
+    font-size: 30px;
+    color:#fff ;
+}
+
+span{
+    color: #03e9f4;
+    text-decoration: underline;
+}
+form{
+    align-items: center;
+}
+.form-bx{
+    width: 400px;
+  height: 500px;
+  backdrop-filter: blur(50px);
+  font-size: 16px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+  transform: translate(-50%, -50%);
+  /* transition: transform .6s ease, height .2s ease-in-out; */
+}
+
+.form-bx form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all .5s ease;
+
+}
+
+/* .form-bx .register {
+    transform: translateX(-100%);
+} */
+.input-bx{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    border-bottom: 2px solid white;
+    margin: 40px 0px;
+}
+
+.register .input-bx{
+    margin: 30px 0px;
+}
+
+.input-bx input{
+    width: 60%;
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    background: none;
+    outline: none;
+    overflow-x: hidden;
+
+}
+
+.input-bx label{
+    transition: 0.4s;
+    margin-left: -150px;
+}
+
+.input-bx input:focus ~ label, 
+.input-bx input:valid ~ label {
+    transform: translateY(-25px);
+}
+
+.input-bx ion-icon {
+    font-size: 22px;
+    margin-right: -150px;
+}
+
+.btn{
+    width: 35%;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 20px 0px;
+    border: none;
+    font-size: 16px;
+    text-align: center;
+    transition: .5s ease-in-out;
+
+}
+
+.btn:hover{
+    background: #03e9f4;
+    color: #fff;
+    font-weight: 900;
+    /* width: 40%;
+    height: 40px;
+    font-size: 20px; */
+    transition: .5s ease-in-out;
+
+}
+.ppl{
+    margin-left: -25px;
+}
+
+.form-bx h5 {
+    cursor: pointer;
+}.icon{
+    color: white;
+}
+
+.loglink{
+    text-decoration: none;
+    color: black;
+    width: 80%;
+    align-self: center;
+    justify-content: center;
+    margin-left: 205px;
+    /* margin-left: 235px; */
+}
+label{
+    color: #03e9f4;
+    opacity: 50%;
+}
